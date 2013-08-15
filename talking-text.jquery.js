@@ -33,7 +33,12 @@
 					if (node.tagName == options.slowTag && slow == false && saved == true) {
 						slow = true;
 					}
+					if (node.firstChild) {
 					nodeCheck(node.firstChild);
+					}
+					else {
+						setTimeout(nodeClimb, pace * 6, node);
+					}
 				}
 			}
 			
