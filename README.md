@@ -7,7 +7,7 @@ talking-text is a jQuery plugin that helps you recreate the typing-it-out-by-its
 talking-text works on any element with text in it. Here's an example:
 
 ```html
-<p class="wizard">Fool! One must <span class="angry-red-text">never</a> even think of the <em>Forest of Impenetrable Sadness</em>!</p>  
+<p class="wizard">Fool! One must <span class="angry-red-text">never</span> even think of the <em>Forest of Impenetrable Sadness</em>!</p>  
 ```
 
 Link the plugin, and you're ready to go:
