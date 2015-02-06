@@ -1,21 +1,22 @@
 ( function ( $ ) {
 	$.fn.talkingText = function(options) {
-		
+
 		// Talking text defaults
 		var defaults = {
 			slowTag: 'EM',
-			pace: 30
+			pace: 30,
+			callback: null
 		}
 		var options = $.extend(defaults, options);
-		
+
 		return this.each(function(){
-			
+
 			var root = this;
 			var savedNodes = [];
 			var saved = false;
 			var slow = false;
 			var pace = options.pace;
-			
+
 			// Function that checks whether the node has children or not and slides down the tree from left to right.
 			var nodeCheck = function(node){
 				if (node.nodeType == 3) {
@@ -41,7 +42,7 @@
 					}
 				}
 			}
-			
+
 			// Function that climbs up the tree from left to right.
 			var nodeClimb = function(node){
 				if (node.tagName == options.slowTag && slow == true && saved == true) {
@@ -55,12 +56,16 @@
 				}
 				else {
 					saved = true;
-					if (savedNodes.length != 0) { 
+					if (savedNodes.length != 0) {
 						nodeCheck(root.firstChild);
+					} else {
+						if (typeof options.callback == 'function') {
+							options.callback.call(this);
+						}
 					}
 				}
 			}
-			
+
 			// Function that takes a node and types in the text bit by bit.
 			var talkingText = function(node, text) {
 				if (text.length > 0) {
@@ -84,9 +89,9 @@
 					nodeClimb(node);
 				}
 			}
-			
+
 			nodeCheck(root.firstChild);
-			
+
 		});
 	}
 })( jQuery );
