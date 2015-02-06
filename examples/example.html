@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>talking-text</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+    <script src="../talking-text.jquery.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function() {
+      $('.talk').talkingText({ callback: function() {
+        console.log('Finished');
+      }});
+    });
+    </script>
+  </head>
+  <body>
+    <p class="talk">Here is some talking text. Isn't it <em>wonderful</em>?</p>
+  </body>
+</html>
