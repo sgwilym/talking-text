@@ -52,13 +52,13 @@ $('.talking-text').talkingText({slowTag: 'B', pace: 100, voice: { accent: 1, pit
 
 Supplying a `voice` object with your options will make talking-text utilise the Web Audio API to make little beep boop noises as it types out, just like the good old days!
 
-To customise the 'voice' of the sound, you can do so by supplying `accent` and `pitch` values, like so:
+To customise the 'voice' of the sound, you can do so by supplying `accent`, `pitch` and `volume` values, like so:
 
 ```javascript
-$('.talking-text').talkingText({ voice: { accent: 1, pitch: 200});
+$('.talking-text').talkingText({ voice: { accent: 1, pitch: 200, volume: 0.7});
 ```
 
-The lower the number for `accent`, the more characters tone varies from one another. The higher the number given for `pitch`, the higher the pitch of all tones made.
+The lower the number for `accent`, the more characters tone varies from one another. The higher the number given for `pitch`, the higher the pitch of all tones made. `volume` accepts a float from `0` (mute) to `1.0` (quite loud), and defaults on `0.25`.
 
 And if you leave it out, talking-text makes no sound by default.
 
