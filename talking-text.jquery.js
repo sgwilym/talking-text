@@ -1,3 +1,11 @@
+/*!
+* talking-text 1.0
+* RPG like text effect
+* http://gwil.co
+* MIT License
+* by Sam Gwilym
+*/
+
 (function($) {
   $.fn.talkingText = function(options) {
 

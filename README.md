@@ -2,7 +2,7 @@
 
 talking-text is a jQuery plugin that helps you recreate the typing-it-out-by-itself effect used in many of your favourite RPG games.
 
-The features that make this more than a typewriter effect:
+Here's what make this more than a typewriter effect:
 - Pauses on punctuation
 - Slows down on specified elements so you can E-M-P-H-A-S-I-S-E things
 - Optionally makes little beep boop sounds as it types using the Web Audio API! With customisable 'voices'!
@@ -71,3 +71,9 @@ And if you leave it out, talking-text makes no sound by default.
 Keep in mind that until `talkingText` is fired, the element will appear as it normally would. A simple work around is to set elements to `display: none;` and firing something like `$('.something').show()` right before firing talking-text.
 
 You may also want to account for the fact that this plugin will change the size of the element as it takes all of the content out of the element and then pours it back in. So be explicit with your styles!
+
+## License
+
+talking-text is released under the [MIT license](http://desandro.mit-license.org/).
+
+Copyright &copy; 2015 Sam Gwilym
