@@ -120,7 +120,7 @@
         var audioContext = new webkitAudioContext();
         var gainNode = audioContext.createGain();
         gainNode.connect(audioContext.destination);
-        gainNode.gain.value = 0.01;
+        gainNode.gain.value = options.voice.volume ? options.voice.volume : 0.25;
       }
 
       nodeCheck(root.firstChild);

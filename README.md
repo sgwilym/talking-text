@@ -7,7 +7,7 @@ Here's what make this more than a typewriter effect:
 - Slows down on specified elements so you can E-M-P-H-A-S-I-S-E things
 - Optionally makes little beep boop sounds as it types using the Web Audio API! With customisable 'voices'!
 
-talking-text was originally written for [this webcomic](http://gwil.co/peaches/tales/2.html).
+I originally made talking-text for [a webcomic of mine](http://gwil.co/peaches/tales/2.html).
 
 ## Usage
 
@@ -74,6 +74,6 @@ You may also want to account for the fact that this plugin will change the size 
 
 ## License
 
-talking-text is released under the [MIT license](http://desandro.mit-license.org/).
+talking-text is released under the [MIT license](http://desandro.mit-license.org/). Have fun!
 
 Copyright &copy; 2015 Sam Gwilym
