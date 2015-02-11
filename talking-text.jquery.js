@@ -1,5 +1,5 @@
 /*!
-* talking-text 1.0
+* talking-text
 * RPG like text effect
 * http://gwil.co
 * MIT License
@@ -7,6 +7,25 @@
 */
 
 (function($) {
+
+	AudioContext = (function () {
+		var instance;
+
+		function createInstance() {
+				var object = new webkitAudioContext();
+				return object;
+		}
+
+		return {
+				getInstance: function () {
+						if (!instance) {
+								instance = createInstance();
+						}
+						return instance;
+				}
+		};
+	})();
+
   $.fn.talkingText = function(options) {
 
     // Talking text defaults
@@ -117,7 +136,7 @@
       }
 
       if (options.voice) {
-        var audioContext = new webkitAudioContext();
+        var audioContext = AudioContext.getInstance();
         var gainNode = audioContext.createGain();
         gainNode.connect(audioContext.destination);
         gainNode.gain.value = options.voice.volume ? options.voice.volume : 0.25;
