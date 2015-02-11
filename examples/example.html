@@ -8,8 +8,8 @@
     <script>
     $(document).ready(function() {
       $('.talk').talkingText({ callback: function() {
-        console.log('Finished');
-      }});
+        $('.talk em').css('color', 'blue');
+      }, voice: { accent: 10, pitch: 100 }});
     });
     </script>
   </head>
