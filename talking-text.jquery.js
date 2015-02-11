@@ -5,7 +5,8 @@
 		var defaults = {
 			slowTag: 'EM',
 			pace: 30,
-			callback: null
+			callback: null,
+			voice: null
 		}
 		var options = $.extend(defaults, options);
 
@@ -68,6 +69,7 @@
 
 			// Function that takes a node and types in the text bit by bit.
 			var talkingText = function(node, text) {
+
 				if (text.length > 0) {
 					characterToAdd = text.shift();
 					node.data += characterToAdd;
@@ -83,11 +85,38 @@
 							break;
 						default:
 					}
+					if (options.voice) {
+					playOscillator(oscillatorForChar(characterToAdd, options.voice.accent, options.voice.pitch), wait * 0.5);
+				}
 					setTimeout(talkingText, wait, node, text);
 				}
 				else {
 					nodeClimb(node);
 				}
+			}
+
+			var oscillatorForChar = function(char, accent, pitch) {
+				oscillator = audioContext.createOscillator();
+				oscillator.type = 1;
+				if (char.charCodeAt(0) != 32) {
+					oscillator.frequency.value = (char.charCodeAt(0) / accent) + pitch;
+				} else {
+					oscillator.frequency.value = 0;
+				}
+				return oscillator
+			}
+
+			var playOscillator = function(oscillator, lifetime) {
+				oscillator.connect(gainNode);
+				oscillator.start(0);
+				setTimeout(function() { oscillator.disconnect() }, lifetime);
+			}
+
+			if (options.voice) {
+				var audioContext = new webkitAudioContext();
+				var gainNode = audioContext.createGain();
+				gainNode.connect(audioContext.destination);
+				gainNode.gain.value = 0.01;
 			}
 
 			nodeCheck(root.firstChild);
