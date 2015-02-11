@@ -1,6 +1,13 @@
 # talking-text
 
-talking-text is a jQuery plugin that helps you recreate the typing-it-out-by-itself effect used in many of your favourite RPG games. It pauses on punctuation, slows down on specified elements so you can E-M-P-H-A-S-I-S-E things, and you can tweak lots more! It was made for [this webcomic](http://gwil.co/peaches/tales/2.html)
+talking-text is a jQuery plugin that helps you recreate the typing-it-out-by-itself effect used in many of your favourite RPG games.
+
+The features that make this more than a typewriter effect:
+- Pauses on punctuation
+- Slows down on specified elements so you can E-M-P-H-A-S-I-S-E things
+- Optionally makes little beep boop sounds as it types using the Web Audio API! With customisable 'voices'!
+
+talking-text was originally written for [this webcomic](http://gwil.co/peaches/tales/2.html).
 
 ## Usage
 
@@ -22,14 +29,14 @@ This will make the effect fire as soon as the page loads, but you can link it up
 
 ## Options
 
-You can tweak the behaviour of talking-text with three options: `slowTag`, `pace`, and `callback`.
+You can tweak the behaviour of talking-text with three options: `slowTag`, `pace`, `voice` and `callback`.
+
+Here's a sample with all options:
 
 ```javascript
-$(document).ready(function() {
-	$('.talking-text').talkingText({slowTag: 'B', pace: 100, callback: function() {
-		console.log('Finished typing!');
-	}});
-});
+$('.talking-text').talkingText({slowTag: 'B', pace: 100, voice: { accent: 1, pitch: 200}, callback: function() {
+	alert('Finished typing!');
+}});
 ```
 
 ### slowTag
@@ -41,9 +48,23 @@ $(document).ready(function() {
 
 `pace` sets the number of milliseconds taken between typing out each character. It is `30` by default.
 
+### voice
+
+Supplying a `voice` object with your options will make talking-text utilise the Web Audio API to make little beep boop noises as it types out, just like the good old days!
+
+To customise the 'voice' of the sound, you can do so by supplying `accent` and `pitch` values, like so:
+
+```javascript
+$('.talking-text').talkingText({ voice: { accent: 1, pitch: 200});
+```
+
+The lower the number for `accent`, the more characters tone varies from one another. The higher the number given for `pitch`, the higher the pitch of all tones made.
+
+And if you leave it out, talking-text makes no sound by default.
+
 ### callback
 
-`callback` allows you to supply a function that is fired after the text has finished typing out. This is left empty by default.
+`callback` allows you to supply a function that is fired after the text has finished typing out. This is `null` by default.
 
 ## Caveats
 

@@ -5,8 +5,8 @@
     var defaults = {
       slowTag: 'EM',
       pace: 30,
-      callback: null,
-      voice: null
+			voice: null,
+      callback: null
     }
     var options = $.extend(defaults, options);
 
