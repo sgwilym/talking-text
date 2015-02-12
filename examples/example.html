@@ -9,8 +9,8 @@
     $(document).ready(function() {
       $('.talk').talkingText({ charCallback: function(c) {
         console.log(c);
-      }, callback: function() {
-        console.log(this);
+      }, callback: function(t) {
+        console.log(t);
         $('.talk em').css('color', 'blue');
       }, voice: { accent: 10, pitch: 100 }});
     });

@@ -76,9 +76,9 @@ $('.talking-text').talkingText({ charCallback: function(char) {
 
 `null` by default.
 
-### callback
+### callback(t)
 
-`callback` allows you to supply a function that is fired after the text has finished typing out.
+`callback` allows you to supply a function that is fired after the text has finished typing out. The optional argument `t` returns the entire text content of the element that was just typed out.
 
 `null` by default.
 

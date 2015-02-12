@@ -84,7 +84,7 @@
             nodeCheck(root.firstChild);
           } else {
             if (typeof options.callback == 'function') {
-              options.callback.call(root);
+              options.callback.call(root, $(root).text());
             }
           }
         }
