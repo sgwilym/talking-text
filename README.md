@@ -90,6 +90,6 @@ You may also want to account for the fact that this plugin will change the size 
 
 ## License
 
-talking-text is released under the [MIT license](http://desandro.mit-license.org/). Have fun!
+talking-text is released under the [MIT license](http://mit-license.org). Have fun!
 
 Copyright &copy; 2015 Sam Gwilym
