@@ -33,6 +33,7 @@
       slowTag: 'EM',
       pace: 30,
 			voice: null,
+			charCallback: null,
       callback: null
     }
     var options = $.extend(defaults, options);
@@ -83,7 +84,7 @@
             nodeCheck(root.firstChild);
           } else {
             if (typeof options.callback == 'function') {
-              options.callback.call(this);
+              options.callback.call(root);
             }
           }
         }
@@ -110,6 +111,9 @@
           if (options.voice) {
             playOscillator(oscillatorForChar(characterToAdd, options.voice.accent, options.voice.pitch), wait * 0.5);
           }
+					if (typeof options.charCallback == 'function') {
+						options.charCallback.call(this, characterToAdd);
+					}
           setTimeout(talkingText, wait, node, text);
         } else {
           nodeClimb(node);
