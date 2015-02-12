@@ -122,7 +122,7 @@
 
       var oscillatorForChar = function(char, accent, pitch) {
         oscillator = audioContext.createOscillator();
-        oscillator.type = 1;
+        oscillator.type = 'square';
         if (char.charCodeAt(0) != 32) {
           oscillator.frequency.value = (char.charCodeAt(0) / accent) + pitch;
         } else {
