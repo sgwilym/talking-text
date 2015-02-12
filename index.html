@@ -180,27 +180,23 @@
     <h1>talking-text ♪</h1>
   </header>
   <main>
-    <pre>$(
-      <span class="string">'.chirpy-bird'</span>).talkingText();</pre>
+    <pre>$(<span class="string">'.chirpy-bird'</span>).talkingText();</pre>
     <p>talking-text takes text from your webpage and types it out just like those classic games you love so much!</p>
     <p>It's great for webcomics, interactive demos or anything you'd like to give that unmistakeable ‘gamelike’ feeling.</p>
     <p>But the fun doesn't stop there: please allow this helpful frog to show you just
       <em>some</em> of the options talking-text offers (you'll have to nudge him first &mdash; he can be as lazy as he can be helpful):</p>
-    <pre class="expanded-example">$(document).ready(
-      <span class="keyword">function</span>(){ $(
-      <span class="string">'p.loud-slow-wizard'</span>).talkingText({
-      <span class="comment">// Change speed of typing</span>
-      pace: 100,
-      <span class="comment">// Customise 'voice' provided by Web Audio API</span>
-      voice: { accent:
-      <span class="number">1</span>, pitch:
-      <span class="number">100</span>, volume:
-      <span class="number">1</span> }
-      <span class="comment">// Fire a function after typing is completed</span>
-      callback:
-      <span class="keyword">function</span>(text) { console.log(
-      <span class="string">'Finished typing: '</span> + text); } }); })
-    </pre>
+    <pre class="expanded-example">$(document).ready(<span class="keyword">function</span>(){
+  $(<span class="string">'p.loud-slow-wizard'</span>).talkingText({
+    <span class="comment">// Change speed of typing</span>
+    pace: 100,
+    <span class="comment">// Customise 'voice' provided by Web Audio API</span>
+    voice: { accent: <span class="number">1</span>, pitch: <span class="number">100</span>, volume: <span class="number">1</span> }
+    <span class="comment">// Fire function after typing is completed</span>
+    callback:<span class="keyword">function</span>(text) {
+      console.log(<span class="string">'Finished typing: '</span> + text);
+    }
+  });
+})</pre>
     <p style="text-align: right">
       <img class="helpful-frog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR4Aa2QwQmAMBRDu6zrdBVn6cmDV/Eq0gEiFXIpoR9jA4/y+eZZTdOzbBlEzHEuoD34staMfk6jsEDULCUsf8EuE/3jYrSEi9+38ATiU2yBEvVnKGBsAd+uBESWgQN3LRid+1lYnFhuiwBZZh6EEP+JIU98hAAAAABJRU5ErkJggg==">
     </p>
