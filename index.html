@@ -40,7 +40,7 @@
           callback: function() {
             $('.chirpy-bird').attr('src', 'data:image/png;base64,' + birdFinish);
             setTimeout(function() {
-              $('main').addClass('visible');
+              $('main, footer').addClass('visible');
             }, 500);
           }
         });
@@ -102,12 +102,12 @@
       margin: 0;
     }
 
-    main {
+    main, footer {
       opacity: 0;
       transition: opacity 1s;
     }
 
-    main.visible {
+    .visible {
       opacity: 1;
     }
 
@@ -172,6 +172,7 @@
     }
 
     img.helpful-frog {
+      cursor: pointer;
       width: 100px;
       height: 100px;
     }
@@ -189,7 +190,7 @@
     </header>
     <main>
       <pre>$(<span class="string">'.chirpy-bird'</span>).talkingText();</pre>
-      <p>talking-text takes text on the web and types it out just like those classic games you love so much!</p>
+      <p>talking-text takes text from your webpage and types it out just like those classic games you love so much!</p>
       <p>But the fun doesn't stop there: please allow this helpful frog to show you just <em>some</em> of the options talking-text offers (you'll have to nudge him first &mdash; he can be as lazy as he is helpful):</p>
       <pre class="expanded-example">$(document).ready(<span class="keyword">function</span>(){
   $(<span class="string">'p.loud-slow-wizard'</span>).talkingText({
@@ -205,7 +206,7 @@
 })</pre>
       <p style="text-align: right"><img class="helpful-frog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR4Aa2QwQmAMBRDu6zrdBVn6cmDV/Eq0gEiFXIpoR9jA4/y+eZZTdOzbBlEzHEuoD34staMfk6jsEDULCUsf8EuE/3jYrSEi9+38ATiU2yBEvVnKGBsAd+uBESWgQN3LRid+1lYnFhuiwBZZh6EEP+JIU98hAAAAABJRU5ErkJggg==">
       </p>
-      <p>talking-text is free to use under the MIT license. Download  <a href="https://raw.githubusercontent.com/sgwilym/talking-text/master/talking-text.jquery.js">talking-text.jquery.js</a>, or find out more on <a href="https://github.com/sgwilym/talking-text">Github</a>.
+      <p>The best bit is that talking-text is free for anyone to use under the MIT license. Download  <a href="https://raw.githubusercontent.com/sgwilym/talking-text/master/talking-text.jquery.js">talking-text.jquery.js</a> to get started, and find out more on <a href="https://github.com/sgwilym/talking-text">Github</a>.
 
     </main>
     <footer>
