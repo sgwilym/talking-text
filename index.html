@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <title>talking-text</title>
-    <meta charset="UTF-8">
-    <script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
-    <script src="http://gwil.co/peaches/tales/js/panel-switcher.jquery.js"></script>
-    <script src="talking-text.jquery.js" type="text/javascript"></script>
-    <script>
+
+<head>
+  <title>talking-text</title>
+  <meta charset="UTF-8">
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script src="talking-text.jquery.js" type="text/javascript"></script>
+  <script>
     $(document).ready(function() {
 
       // Some useful stuff for cycling through frames
@@ -21,17 +20,26 @@
       })();
 
       // Various tiny pixel animals
-      var birdFrames = ["iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAASklEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPYwMArRJWALkjMIkAAAAASUVORK5CYII=", "iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAATElEQVR4AWPABf496vuPjtHVENRMliF4NELYp3xRMCm2YxhArL+xGoDT+SS7ACRIAsZuO9REkg0gZBBBv+MziGB0EW3QtWmENI8aAADd81vMXiBVzwAAAABJRU5ErkJggg=="];
+      var birdFrames = ["iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAASklEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPYwMArRJWALkjMIkAAAAASUVORK5CYII=",
+        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAATElEQVR4AWPABf496vuPjtHVENRMliF4NELYp3xRMCm2YxhArL+xGoDT+SS7ACRIAsZuO9REkg0gZBBBv+MziGB0EW3QtWmENI8aAADd81vMXiBVzwAAAABJRU5ErkJggg=="
+      ];
       var birdFinish = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAZUlEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWNSNCMwwgDsBuGzGQQOPfmPTBMwAIHxGwCSJBYjDECzHeofQgYQDkSoJEka8RqEwJgaiTbo2jQSNcNsQ7YVZghRhqFrRjGEFgAAmNhwzNEAIe4AAAAASUVORK5CYII="
 
-      var frogFrames = ["iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAd0lEQVR4AbWSQQqAMAwE+9l+p1/xLT314FW8ivQBKxEDQVlZRReGEM0sHkyfJ7cC57IrWQA4Qy8477fycWBEIe47VH6CLOcmFNgRR/gKfiQUKCUM+g+8KyBFYZICkh8KHCIDE9ZeYTNK8fk41yASmU0q2wuFRLIBWQv31SJpflIAAAAASUVORK5CYII=", "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVR42q2QwQnAIBRDu6zruEpn8eSh19JrKQ6QVuEjDWqwNBDiR/NQl9/looe5MWudAMxr8qB5DLHCsyxuzMXd8oynyi4KQD4wtrgFHWBrgIYIAD1lGjACcWqA6TOAf76mKAM7rhRA+QJsR7CiLHP2y3lDu5ZZN3gW/aDwHmCbAAAAAElFTkSuQmCC"]
-      var frogFinish = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVR4Aa2SMQrAMAwD89l8J1/pWzJl6Fq6hpIHqGgQXexiTASHMbJECi3bVUeDsPaIQCaAYzUYuy8e8FAYu18iM0oqXIdTQCOK+QoZ+c9Ilrj/QLrAKvpmsEBKF/DQfoFwwsCFZ3X8zfPuCm4M04hQHL1KWf8j/r662wAAAABJRU5ErkJggg=="
+      var frogFrames = [
+        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAd0lEQVR4AbWSQQqAMAwE+9l+p1/xLT314FW8ivQBKxEDQVlZRReGEM0sHkyfJ7cC57IrWQA4Qy8477fycWBEIe47VH6CLOcmFNgRR/gKfiQUKCUM+g+8KyBFYZICkh8KHCIDE9ZeYTNK8fk41yASmU0q2wuFRLIBWQv31SJpflIAAAAASUVORK5CYII=",
+        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVR42q2QwQnAIBRDu6zruEpn8eSh19JrKQ6QVuEjDWqwNBDiR/NQl9/looe5MWudAMxr8qB5DLHCsyxuzMXd8oynyi4KQD4wtrgFHWBrgIYIAD1lGjACcWqA6TOAf76mKAM7rhRA+QJsR7CiLHP2y3lDu5ZZN3gW/aDwHmCbAAAAAElFTkSuQmCC"
+      ]
+      var frogFinish =
+        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVR4Aa2SMQrAMAwD89l8J1/pWzJl6Fq6hpIHqGgQXexiTASHMbJECi3bVUeDsPaIQCaAYzUYuy8e8FAYu18iM0oqXIdTQCOK+QoZ+c9Ilrj/QLrAKvpmsEBKF/DQfoFwwsCFZ3X8zfPuCm4M04hQHL1KWf8j/r662wAAAABJRU5ErkJggg=="
 
       setTimeout(function() {
         $('h1').css('display', 'inline-block');
         $('h1').talkingText({
           pace: 100,
-          voice: { accent: 1, pitch: 300},
+          voice: {
+            accent: 1,
+            pitch: 300
+          },
           charCallback: function(char) {
             if (char != " ") {
               $('.chirpy-bird').attr('src', 'data:image/png;base64,' + nextFrame(birdFrames));
@@ -50,7 +58,10 @@
         $('pre.expanded-example').show();
         $('pre.expanded-example').talkingText({
           pace: 40,
-          voice: { accent: 2, pitch: 50},
+          voice: {
+            accent: 2,
+            pitch: 50
+          },
           charCallback: function(char) {
             if (char != " ") {
               $('.helpful-frog').attr('src', 'data:image/png;base64,' + nextFrame(frogFrames));
@@ -62,66 +73,55 @@
         })
       });
     });
-    </script>
-    <style type="text/css">
 
+  </script>
+  <style type="text/css">
     @font-face {
       font-family: 'PeachPix5';
       src: url('http://gwil.co/peaches/css/font/peaches-pixel-5.eot');
-      src: url('http://gwil.co/peaches/css/font/peaches-pixel-5.eot?#iefix') format('embedded-opentype'),
-           url('http://gwil.co/peaches/css/font/peaches-pixel-5.woff') format('woff'),
-           url('http://gwil.co/peaches/css/font/peaches-pixel-5.ttf') format('truetype'),
-           url('http://gwil.co/peaches/css/font/peaches-pixel-5.svg#peachespixel') format('svg');
+      src: url('http://gwil.co/peaches/css/font/peaches-pixel-5.eot?#iefix') format('embedded-opentype'), url('http://gwil.co/peaches/css/font/peaches-pixel-5.woff') format('woff'), url('http://gwil.co/peaches/css/font/peaches-pixel-5.ttf') format('truetype'), url('http://gwil.co/peaches/css/font/peaches-pixel-5.svg#peachespixel') format('svg');
       font-weight: normal;
       font-style: normal;
     }
-
     body {
       color: white;
       background-color: #cf0060;
       font-family: 'PeachPix5';
       -webkit-font-smoothing: none;
     }
-
     header {
       font-size: 60px;
       width: 7.5em;
       margin: auto;
       padding: 1em 0;
     }
-
     header > * {
       display: inline-block;
       vertical-align: middle;
     }
-
     h1 {
       font-weight: normal;
       font-size: 1em;
       display: none;
       margin: 0;
     }
-
-    main, footer {
+    main,
+    footer {
       opacity: 0;
       transition: opacity 1s;
     }
-
     .visible {
       opacity: 1;
     }
-
     p {
       width: 18em;
       font-size: 20px;
       margin: 0 auto 1em auto;
     }
-
     p em {
       font-style: normal;
       color: #fee28e;
     }
-
     img {
       image-rendering: -webkit-optimize-contrast;
       image-rendering: -moz-crisp-edges;
@@ -129,14 +129,12 @@
       image-rendering: optimizeSpeed;
       -ms-interpolation-mode: nearest-neighbor;
     }
-
     code {
       font-family: 'PeachPix5';
       color: black;
       background-color: white;
       padding: .1em;
     }
-
     pre {
       font-size: 20px;
       width: 30em;
@@ -146,71 +144,74 @@
       padding: 1em;
       -webkit-font-smoothing: antialiased;
     }
-
     pre.expanded-example {
       display: none;
     }
-
     pre .string {
       color: #00b777;
     }
-
     pre .keyword {
       color: #a05efc;
     }
-
     pre .number {
       color: #c85d00;
     }
-
     pre .comment {
       color: #b7d4dd;
     }
-
     img.chirpy-bird {
       width: 1.5em;
     }
-
     img.helpful-frog {
       cursor: pointer;
       width: 100px;
       height: 100px;
     }
-
     a {
       color: #aff38e;
     }
 
-    </style>
-  </head>
-  <body>
-    <header>
-      <img class="chirpy-bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATElEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPXwMoBwCEXFYAHqtWMQAAAABJRU5ErkJggg==">
-      <h1>talking-text ♪</h1>
-    </header>
-    <main>
-      <pre>$(<span class="string">'.chirpy-bird'</span>).talkingText();</pre>
-      <p>talking-text takes text from your webpage and types it out just like those classic games you love so much!</p>
-      <p>But the fun doesn't stop there: please allow this helpful frog to show you just <em>some</em> of the options talking-text offers (you'll have to nudge him first &mdash; he can be as lazy as he is helpful):</p>
-      <pre class="expanded-example">$(document).ready(<span class="keyword">function</span>(){
-  $(<span class="string">'p.loud-slow-wizard'</span>).talkingText({
-    <span class="comment">// Change speed of typing</span>
-    pace: 100,
-    <span class="comment">// Customise 'voice' provided by Web Audio API</span>
-    voice: { accent: <span class="number">1</span>, pitch: <span class="number">100</span>, volume: <span class="number">1</span> }
-    <span class="comment">// Fire a function after typing is completed</span>
-    callback: <span class="keyword">function</span>(text) {
-        console.log(<span class="string">'Finished typing: '</span> + text);
-    }
-  });
-})</pre>
-      <p style="text-align: right"><img class="helpful-frog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR4Aa2QwQmAMBRDu6zrdBVn6cmDV/Eq0gEiFXIpoR9jA4/y+eZZTdOzbBlEzHEuoD34staMfk6jsEDULCUsf8EuE/3jYrSEi9+38ATiU2yBEvVnKGBsAd+uBESWgQN3LRid+1lYnFhuiwBZZh6EEP+JIU98hAAAAABJRU5ErkJggg==">
-      </p>
-      <p>The best bit is that talking-text is free for anyone to use under the MIT license. Download  <a href="https://raw.githubusercontent.com/sgwilym/talking-text/master/talking-text.jquery.js">talking-text.jquery.js</a> to get started, and find out more on <a href="https://github.com/sgwilym/talking-text">Github</a>.
+  </style>
+</head>
 
-    </main>
-    <footer>
-      <p>Copyright (c) 2015 <a href="http://gwil.co">Sam Gwilym</a></p>
-    </footer>
-  </body>
+<body>
+  <header>
+    <img class="chirpy-bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATElEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPXwMoBwCEXFYAHqtWMQAAAABJRU5ErkJggg==">
+    <h1>talking-text ♪</h1>
+  </header>
+  <main>
+    <pre>$(
+      <span class="string">'.chirpy-bird'</span>).talkingText();</pre>
+    <p>talking-text takes text from your webpage and types it out just like those classic games you love so much!</p>
+    <p>It's great for webcomics, interactive demos or anything you'd like to give that unmistakeable ‘gamelike’ feeling.</p>
+    <p>But the fun doesn't stop there: please allow this helpful frog to show you just
+      <em>some</em> of the options talking-text offers (you'll have to nudge him first &mdash; he can be as lazy as he can be helpful):</p>
+    <pre class="expanded-example">$(document).ready(
+      <span class="keyword">function</span>(){ $(
+      <span class="string">'p.loud-slow-wizard'</span>).talkingText({
+      <span class="comment">// Change speed of typing</span>
+      pace: 100,
+      <span class="comment">// Customise 'voice' provided by Web Audio API</span>
+      voice: { accent:
+      <span class="number">1</span>, pitch:
+      <span class="number">100</span>, volume:
+      <span class="number">1</span> }
+      <span class="comment">// Fire a function after typing is completed</span>
+      callback:
+      <span class="keyword">function</span>(text) { console.log(
+      <span class="string">'Finished typing: '</span> + text); } }); })
+    </pre>
+    <p style="text-align: right">
+      <img class="helpful-frog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR4Aa2QwQmAMBRDu6zrdBVn6cmDV/Eq0gEiFXIpoR9jA4/y+eZZTdOzbBlEzHEuoD34staMfk6jsEDULCUsf8EuE/3jYrSEi9+38ATiU2yBEvVnKGBsAd+uBESWgQN3LRid+1lYnFhuiwBZZh6EEP+JIU98hAAAAABJRU5ErkJggg==">
+    </p>
+    <p>The best bit is that talking-text is free for anyone to use under the MIT license. Download <a href="https://raw.githubusercontent.com/sgwilym/talking-text/master/talking-text.jquery.js">talking-text.jquery.js</a> to get started, and find out more
+      on <a href="https://github.com/sgwilym/talking-text">Github</a>.
+
+  </main>
+  <footer>
+    <p>Copyright (c) 2015 <a href="http://gwil.co">Sam Gwilym</a>
+    </p>
+  </footer>
+</body>
+
 </html>
