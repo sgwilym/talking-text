@@ -62,9 +62,25 @@ The lower the number for `accent`, the more characters tone varies from one anot
 
 And if you leave it out, talking-text makes no sound by default.
 
-### callback
+### charCallback(c)
 
-`callback` allows you to supply a function that is fired after the text has finished typing out. This is `null` by default.
+`charCallback` is a function called each time a character is printed out, with the optional argument `c` as that just-printed character.
+
+An example: printing out each character to the console:
+
+```javascript
+$('.talking-text').talkingText({ charCallback: function(char) {
+	console.log(char);
+}});
+```
+
+`null` by default.
+
+### callback(t)
+
+`callback` allows you to supply a function that is fired after the text has finished typing out. The optional argument `t` returns the entire text content of the element that was just typed out.
+
+`null` by default.
 
 ## Caveats
 

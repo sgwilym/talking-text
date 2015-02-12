@@ -7,7 +7,10 @@
     <script src="../talking-text.jquery.js" type="text/javascript"></script>
     <script>
     $(document).ready(function() {
-      $('.talk').talkingText({ callback: function() {
+      $('.talk').talkingText({ charCallback: function(c) {
+        console.log(c);
+      }, callback: function(t) {
+        console.log(t);
         $('.talk em').css('color', 'blue');
       }, voice: { accent: 10, pitch: 100 }});
     });
