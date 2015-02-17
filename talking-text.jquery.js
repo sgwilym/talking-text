@@ -12,7 +12,8 @@
 		var instance;
 
 		function createInstance() {
-				var object = new webkitAudioContext();
+				var AudioContext = window.AudioContext || window.webkitAudioContext;
+				var object = new AudioContext();
 				return object;
 		}
 
@@ -32,9 +33,9 @@
     var defaults = {
       slowTag: 'EM',
       pace: 30,
-			voice: null,
-			charCallback: null,
-      callback: null
+			voice: undefined,
+			charCallback: undefined,
+      callback: undefined
     }
     var options = $.extend(defaults, options);
 
@@ -64,7 +65,7 @@
           if (node.firstChild) {
             nodeCheck(node.firstChild);
           } else {
-            setTimeout(nodeClimb, pace * 6, node);
+						nodeClimb(node);
           }
         }
       }
@@ -75,7 +76,7 @@
           slow = false;
         }
         if (node.nextSibling != null && node.nextSibling != root.nextSibling) {
-          nodeCheck(node.nextSibling);
+					nodeCheck(node.nextSibling);
         } else if (node.nextSibling == null) {
           nodeClimb(node.parentNode);
         } else {

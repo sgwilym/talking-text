@@ -20,17 +20,17 @@
       })();
 
       // Various tiny pixel animals
-      var birdFrames = ["iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAASklEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPYwMArRJWALkjMIkAAAAASUVORK5CYII=",
-        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAATElEQVR4AWPABf496vuPjtHVENRMliF4NELYp3xRMCm2YxhArL+xGoDT+SS7ACRIAsZuO9REkg0gZBBBv+MziGB0EW3QtWmENI8aAADd81vMXiBVzwAAAABJRU5ErkJggg=="
+      var birdFrames = ["http://gwil.co/img/talking-text-img/c1.png",
+        "http://gwil.co/img/talking-text-img/c2.png"
       ];
-      var birdFinish = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAPCAYAAADtc08vAAAAZUlEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWNSNCMwwgDsBuGzGQQOPfmPTBMwAIHxGwCSJBYjDECzHeofQgYQDkSoJEka8RqEwJgaiTbo2jQSNcNsQ7YVZghRhqFrRjGEFgAAmNhwzNEAIe4AAAAASUVORK5CYII="
+      var birdFinish = "http://gwil.co/img/talking-text-img/c3.png"
 
       var frogFrames = [
-        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAd0lEQVR4AbWSQQqAMAwE+9l+p1/xLT314FW8ivQBKxEDQVlZRReGEM0sHkyfJ7cC57IrWQA4Qy8477fycWBEIe47VH6CLOcmFNgRR/gKfiQUKCUM+g+8KyBFYZICkh8KHCIDE9ZeYTNK8fk41yASmU0q2wuFRLIBWQv31SJpflIAAAAASUVORK5CYII=",
-        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVR42q2QwQnAIBRDu6zruEpn8eSh19JrKQ6QVuEjDWqwNBDiR/NQl9/looe5MWudAMxr8qB5DLHCsyxuzMXd8oynyi4KQD4wtrgFHWBrgIYIAD1lGjACcWqA6TOAf76mKAM7rhRA+QJsR7CiLHP2y3lDu5ZZN3gW/aDwHmCbAAAAAElFTkSuQmCC"
+        "http://gwil.co/img/talking-text-img/h1.png",
+        "http://gwil.co/img/talking-text-img/h2.png"
       ]
       var frogFinish =
-        "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVR4Aa2SMQrAMAwD89l8J1/pWzJl6Fq6hpIHqGgQXexiTASHMbJECi3bVUeDsPaIQCaAYzUYuy8e8FAYu18iM0oqXIdTQCOK+QoZ+c9Ilrj/QLrAKvpmsEBKF/DQfoFwwsCFZ3X8zfPuCm4M04hQHL1KWf8j/r662wAAAABJRU5ErkJggg=="
+        "http://gwil.co/img/talking-text-img/h3.png"
 
       setTimeout(function() {
         $('h1').css('display', 'inline-block');
@@ -42,11 +42,11 @@
           },
           charCallback: function(char) {
             if (char != " ") {
-              $('.chirpy-bird').attr('src', 'data:image/png;base64,' + nextFrame(birdFrames));
+              $('.chirpy-bird').attr('src', nextFrame(birdFrames));
             }
           },
           callback: function() {
-            $('.chirpy-bird').attr('src', 'data:image/png;base64,' + birdFinish);
+            $('.chirpy-bird').attr('src', birdFinish);
             setTimeout(function() {
               $('main, footer').addClass('visible');
             }, 500);
@@ -64,11 +64,11 @@
           },
           charCallback: function(char) {
             if (char != " ") {
-              $('.helpful-frog').attr('src', 'data:image/png;base64,' + nextFrame(frogFrames));
+              $('.helpful-frog').attr('src', nextFrame(frogFrames));
             }
           },
           callback: function() {
-            $('.helpful-frog').attr('src', 'data:image/png;base64,' + frogFinish);
+            $('.helpful-frog').attr('src', frogFinish);
           }
         })
       });
@@ -176,7 +176,7 @@
 
 <body>
   <header>
-    <img class="chirpy-bird" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATElEQVR4AWOgGfj3qO8/OiZZM1mG4NEIYZ/yBWOybEcYgMDE+JscAwi7gDRNCIzd/1BTyTaAsEGEQx/TICgmpJGwQdemQTQPXwMoBwCEXFYAHqtWMQAAAABJRU5ErkJggg==">
+    <img class="chirpy-bird" src="http://gwil.co/img/talking-text-img/c1.png">
     <h1>talking-text ♪</h1>
   </header>
   <main>
@@ -199,7 +199,7 @@
   });
 })</pre>
     <p style="text-align: right">
-      <img class="helpful-frog" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaUlEQVQ4y2NgoDZY/7nvPwxj45NkADZMUHPqdQTGxsdpCCGb8bqEVM0YBiA7kxDGagi6BNmuoMgAZK+QbQA2g9BpotME2QZgS0jYEhSGxv//n/z/+Pnif3z07WcXsdtKkWaQBDEYV1gBAIyeAnD7ChBlAAAAAElFTkSuQmCC">
+      <img class="helpful-frog" src="http://gwil.co/img/talking-text-img/h0.png">
     </p>
     <p>The best bit is that talking-text is free for anyone to use under the MIT license. Download <a href="https://raw.githubusercontent.com/sgwilym/talking-text/master/talking-text.jquery.js">talking-text.jquery.js</a> to get started, and find out more
       on <a href="https://github.com/sgwilym/talking-text">Github</a>.
