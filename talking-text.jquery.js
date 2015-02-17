@@ -12,7 +12,8 @@
 		var instance;
 
 		function createInstance() {
-				var object = new webkitAudioContext();
+				var AudioContext = window.AudioContext || window.webkitAudioContext;
+				var object = new AudioContext();
 				return object;
 		}
 
