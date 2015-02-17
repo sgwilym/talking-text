@@ -8,13 +8,13 @@
 
 (function($) {
 
-	AudioContext = (function () {
+	AudioContextSingleton = (function () {
 		var instance;
 
 		function createInstance() {
-				var AudioContext = window.AudioContext || window.webkitAudioContext;
-				var object = new AudioContext();
-				return object;
+			var context = window.AudioContext || webkitAudioContext;
+			var instance = new context();
+			return instance;
 		}
 
 		return {
@@ -141,7 +141,7 @@
       }
 
       if (options.voice) {
-        var audioContext = AudioContext.getInstance();
+        var audioContext = AudioContextSingleton.getInstance();
         var gainNode = audioContext.createGain();
         gainNode.connect(audioContext.destination);
         gainNode.gain.value = options.voice.volume ? options.voice.volume : 0.25;
